@@ -7,20 +7,22 @@ export default class Lwc_containercomp extends LightningElement {
     }
     get options() {
         return [
-            { label: 'New1', value: 'new1' },
-            { label: 'Started1', value: 'Started1' },
-            { label: 'In Progress1', value: 'inProgress1' },
-            { label: 'Pending-Approval1', value: 'Pending1' },
-            { label: 'Approved1', value: 'Approved1' }
+            { label: 'New', value: 'New' },
+            { label: 'Waiting for Que', value: 'Waiting for Que' },
+            { label: 'Assigned', value: 'Assigned' },
+            { label: 'Pending', value: 'Pending' },
+            { label: 'In Approval', value: 'In Approval' },
+            { label: 'Approved', value: 'Approved' },
+            { label: 'Closed', value: 'Closed' },
+            { label: 'Cancelled', value: 'Cancelled' }
         ];
     }
     handlSelectedvalue(event) {
         try {
             let eventDetail = event.detail;
-            console.log('JSON:::' + JSON.stringify(eventDetail));
+            console.log('return value:::' + JSON.stringify(eventDetail));
         }
         catch (err) {
-            // alert('err' + JSON.stringify(err));
         }
     }
 }

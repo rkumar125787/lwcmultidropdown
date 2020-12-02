@@ -1,21 +1,21 @@
-# Salesforce DX Project: Next Steps
-
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
-
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
-
 ## How to use 
- <c-lwc_multidropdown choice = {options}></c-lwc_multidropdown>
+  <c-lwc_multidropdown choice={options} issearchenabled onselect={handlSelectedvalue} filedwidth="260"
+        valueseprtr="#">
+    </c-lwc_multidropdown>
+ Note : Look for LWC @api specification for more configuration 
+ ## Consideration 
+   1. CSS may impact (like positioning width etc ::) >> Please correct and use as per needs 
+   2. Look for each API specification to use in code 
+   3. options must be in formation of [{label:'',value:''}]
+   4. Return value would be concatenated string by valueseprtr
+   5. Client should handle onselect event for stroing the value .
+   6. Last but not least modify the changes based on your needs :) 
+ ## Future Work 
+1. With Label -- In Progress 
+2. Making Field Required -- In Progress 
+3. Return Value in Form of Array -- In progress
+
+## Using Repo :
+Clone the repo configure your options and handler in client and deploy the project 
+Refer container  lwc_containercomp for more details 
+    

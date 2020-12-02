@@ -11,9 +11,6 @@ export default class Lwc_multidropdown extends LightningElement {
 	@api uniqueid;
 	@api options = [];
 	@track selectedOptions = '--None--';
-	@track isAttributeRequired = false;
-	@api labelName;
-	@api isMultiSelect;
 	@api label;
 	@api value = '';
 	@api filedwidth = '224';
@@ -25,6 +22,7 @@ export default class Lwc_multidropdown extends LightningElement {
 	@track openBox = false;
 	@track orlist = [];
 	@track isAll = false;
+	@track isMultiSelect;
 	/**End Local Props */
 
 	connectedCallback() {
