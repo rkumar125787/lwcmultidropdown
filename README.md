@@ -16,6 +16,6 @@
 3. Return Value in Form of Array -- In progress
 
 ## Using Repo :
-Clone the repo configure your options and handler in client and deploy the project 
-Refer container  lwc_containercomp for more details 
+1. Clone the repo configure your options and handler before calling #lwc_multidropdown cmp.
+2. Deploy the cmp and dependency 
     
