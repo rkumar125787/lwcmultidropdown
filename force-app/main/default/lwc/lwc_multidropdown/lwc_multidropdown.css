@@ -2,14 +2,9 @@
   position: absolute;
   z-index: 100 !important;
   background-color:white;
-  border: 1px solid gray;
+  border: 2px solid #f3f2f2;
   border-radius: 0.35rem;
 }
-
-
-
-
-
 
 .btn {
   width: 70%;
@@ -28,16 +23,15 @@
  
 }
 
-
 input[type=checkbox]:focus
 {
-    outline: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 1px solid white;
 }
 
 input[type=checkbox]
 {
     background-color: white;
-    border : 1px solid gray;
+    border : 2px solid rgb(221, 219, 218);
     border-radius: 0.25rem;
     appearance: none;
     -webkit-appearance: none;

@@ -1,7 +1,12 @@
+/**
+ * Author:Rajesh Kumar,
+ * Description : Multiselect dropdown with search
+ */
 import { LightningElement, api, track } from 'lwc';
 import { isEmpty } from 'c/lwc_util';
 
 export default class Lwc_multidropdown extends LightningElement {
+	/**Begin API Specification */
 	@api choice = '';
 	@api uniqueid;
 	@api options = [];
@@ -12,26 +17,30 @@ export default class Lwc_multidropdown extends LightningElement {
 	@api label;
 	@api value = '';
 	@api filedwidth = '224';
-	@api issearchEnabled = false;
+	@api issearchenabled = false;
+	@api valueseprtr = ';';
+	/**End API Specification */
+
+	/**Begin Local Props */
 	@track openBox = false;
 	@track orlist = [];
 	@track isAll = false;
+	/**End Local Props */
 
 	connectedCallback() {
 		this.prepareInitialdata();
 		this.orlist = JSON.parse(JSON.stringify(this.options)); // prepare original list 
 	}
-
 	prepareInitialdata() {
 		if (this.choice) {
 			this.options = JSON.parse(JSON.stringify(this.choice));
 		}
-		let tempArray = this.value.split(';');
+		let tempArray = this.value.split(this.valueseprtr);
 		let preSelect = '';
 		this.options.map((el) => {
 			if (tempArray.includes(el.label)) {
 				el.isSelected = true;
-				preSelect = preSelect + ';' + el.label;
+				preSelect = preSelect + this.valueseprtr + el.label;
 			}
 		});
 		if (!isEmpty(preSelect)) {
@@ -40,22 +49,15 @@ export default class Lwc_multidropdown extends LightningElement {
 		this.isMultiSelect = true;
 	}
 
-	selectionChangeHandler(event) {
-		this.dispatchEvent(new CustomEvent('selected', { detail: event.target.value }));
-	}
 
-	get multiSelectClassAttr() {
-		return this.isMultiSelect ? ' slds-dropdown_length-5 slds-dropdown_fluid slds-dropdown_length-' + this.dropDownLength : '';
-	}
-
-	handleMouseEnter(event) {
+	handleMouseEnter() {
 		this.openBox = !this.openBox;
+		this.orlist = this.options;
 	}
 
 	handleSelection(event) {
 		const selectedLabel = event.target.label;
 		const selectedValue = event.target.checked;
-
 		if (this.options) {
 			//mark the selection is orig list
 			this.options.forEach(function (option) {
@@ -64,6 +66,7 @@ export default class Lwc_multidropdown extends LightningElement {
 				}
 			});
 			this.prepareSelection('');
+			this.isAll = this.checkAllflag(); // handle select all 
 		}
 	}
 
@@ -97,7 +100,7 @@ export default class Lwc_multidropdown extends LightningElement {
 		}
 		this.options.forEach((option) => {
 			if (option.isSelected) {
-				tickedOptions += option.label + ';';
+				tickedOptions += option.label + this.valueseprtr;
 			}
 		});
 		this.selectedOptions = tickedOptions.slice(0, -1);
@@ -113,11 +116,27 @@ export default class Lwc_multidropdown extends LightningElement {
 		});
 		this.dispatchEvent(selectedRecordEvent);
 	}
+	checkAllflag() {
+		let count = 0;
+		this.options.forEach(el => {
+			count = el.isSelected === true ? count : count + 1;
+		})
+		let bl = count === 0 ? true : false;
+		return bl
 
+	}
+	/**Begin Getter and Setter */
 	get checkSearch() {
-		return this.issearchEnabled && this.options.length > 0 ? true : false
+		return this.issearchenabled && this.options.length > 0 ? true : false
 	}
 	get applyWidth() {
 		return isEmpty(this.filedwidth) ? 'width:250px;' : (parseFloat(this.filedwidth) < 225 ? 'width:225px;' : `width:${this.filedwidth}px;`)
 	}
+	get multiSelectClassAttr() {
+		return this.isMultiSelect ? ' slds-dropdown_length-5 slds-dropdown_fluid slds-dropdown_length-' + this.dropDownLength : '';
+	}
+	get iconlist() {
+		return this.openBox ? 'utility:down' : 'utility:picklist_type';
+	}
+	/**End Getter and Setter */
 }
