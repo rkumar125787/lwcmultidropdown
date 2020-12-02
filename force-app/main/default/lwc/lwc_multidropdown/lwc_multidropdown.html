@@ -1,0 +1,37 @@
+<template>
+    <div class="slds-form-element">
+        <div class={mainDivClassAttr} if:true={isMultiSelect} onscroll={handleScroll}>
+            <div class="slds-button-group" role="group">
+                <button class="slds-button slds-button--neutral slds-picklist__label" aria-haspopup="true"
+                    style={applyWidth} onclick={handleMouseEnter}>
+                    <span class="slds-truncate">{selectedOptions}</span>
+                    <div style="right:0.1px">
+                        <lightning-icon icon-name="utility:down" size="medium">
+                        </lightning-icon>
+                    </div>
+                </button>
+            </div>
+            <template if:true={openBox}>
+                <div class='dropdown' style={applyWidth}>
+                    <template if:true={checkSearch}>
+                        <lightning-input class="btn" placeholder="Search..." type="text" variant="label-hidden"
+                            onchange={handleSearch}>
+                        </lightning-input>
+                        <label><input type="checkbox" checked={isAll} onchange={handeAll}></label>
+                    </template>
+                    <div style="border:1px solid #f3f2f2"></div>
+                    <ul class={multiSelectClassAttr} role="menu">
+                        <template for:each={orlist} for:item="option">
+                            <div class="slds-form-element slds-var-p-around_xx-small" key={option.label}>
+                                <lightning-input type="checkbox" label={option.label} checked={option.isSelected}
+                                    onchange={handleSelection}>
+                                </lightning-input>
+                            </div>
+                        </template>
+                    </ul>
+                    <div style="border:1px solid #f3f2f2"></div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

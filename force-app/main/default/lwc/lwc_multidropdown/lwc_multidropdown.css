@@ -1,0 +1,58 @@
+.dropdown {
+  position: absolute;
+  z-index: 100 !important;
+  background-color:white;
+  border: 1px solid gray;
+  border-radius: 0.35rem;
+}
+
+
+
+
+
+
+.btn {
+  width: 70%;
+  /* padding: 7px 20px; */
+  margin: 0.7rem 0.1rem 0.4rem 0.4rem ;
+  display: inline-block;
+  /* border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box; */
+}
+.utilButtons {
+  width: 25%;
+  margin-bottom: 0.4rem;
+  /* margin: 0.4rem 0.3rem 0.3rem 0.4rem ; */
+  /* padding-bottom:4px; */
+ 
+}
+
+
+input[type=checkbox]:focus
+{
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type=checkbox]
+{
+    background-color: white;
+    border : 1px solid gray;
+    border-radius: 0.25rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    position: relative;
+    top: 12px;
+    float:right;
+    margin-right:4px;
+}
+
+input[type=checkbox]:checked
+{
+    background-color: #409fd6;
+    background: #409fd6 url("data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==") 8px 8px no-repeat;
+}
