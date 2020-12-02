@@ -3,6 +3,7 @@
         valueseprtr="#">
     </c-lwc_multidropdown>
  Note : Look for LWC @api specification for more configuration 
+ Refer this link for functionality snippet : https://github.com/rkumar125787/lwcmultidropdown/issues/1
  ## Consideration 
    1. CSS may impact (like positioning width etc ::) >> Please correct and use as per needs 
    2. Look for each API specification to use in code 
