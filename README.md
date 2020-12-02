@@ -13,6 +13,7 @@
    4. Return value will be concatenated string separated by valueseprtr
    5. Client should handle onselect event for stroing the value .
    6. Last but not least modify the changes based on your needs :) 
+   7. As of now value selection is based on label but can be modified to ahve based on value as well .
  ## Future Work 
 1. With Label -- In Progress 
 2. Making Field Required -- In Progress 
